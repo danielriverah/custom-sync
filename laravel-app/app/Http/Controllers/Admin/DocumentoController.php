@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Documento;
 use App\Models\Modulo;
-use App\Models\Submodulo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,25 +13,23 @@ use Inertia\Inertia;
  */
 class DocumentoController extends Controller
 {
-    public function index(Modulo $modulo, Submodulo $submodulo = null)
+    public function index(Modulo $modulo)
     {
-        $documentos = $submodulo ? $submodulo->documentos : $modulo->documentos;
+        $documentos = $modulo->documentos;
         return Inertia::render('Documents/Index', [
             'modulo' => $modulo,
-            'submodulo' => $submodulo,
             'documentos' => $documentos,
         ]);
     }
 
-    public function create(Modulo $modulo, Submodulo $submodulo = null)
+    public function create(Modulo $modulo)
     {
         return Inertia::render('Documents/Create', [
             'modulo' => $modulo,
-            'submodulo' => $submodulo,
         ]);
     }
 
-    public function store(Request $request, Modulo $modulo, Submodulo $submodulo = null)
+    public function store(Request $request, Modulo $modulo)
     {
         $data = $request->validate([
             'titulo' => 'required|max:150',
@@ -40,9 +37,6 @@ class DocumentoController extends Controller
             'orden' => 'integer',
         ]);
         $data['modulo_id'] = $modulo->modulo_id;
-        if ($submodulo) {
-            $data['submodulo_id'] = $submodulo->submodulo_id;
-        }
         Documento::create($data);
         return redirect()->route('admin.modulos.documentos.index', $modulo);
     }
