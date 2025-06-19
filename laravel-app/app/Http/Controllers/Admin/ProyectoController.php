@@ -41,7 +41,11 @@ class ProyectoController extends Controller
 
     public function edit(Proyecto $proyecto)
     {
-        return Inertia::render('Projects/Edit', ['proyecto' => $proyecto]);
+        $proyecto->load('modulos.submodulos.documentos.recursos');
+
+        return Inertia::render('Projects/Edit', [
+            'proyecto' => $proyecto,
+        ]);
     }
 
     public function update(Request $request, Proyecto $proyecto)
