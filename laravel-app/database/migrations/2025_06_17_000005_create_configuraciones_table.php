@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('configuraciones', function (Blueprint $table) {
             $table->id('configuracion_id');
-            $table->foreignId('proyecto_id')->unique()->constrained('proyectos')->onDelete('cascade');
+            $table->foreignId('proyecto_id')->unique()->constrained('proyectos','proyecto_id')->onDelete('cascade');
             $table->string('logo_url', 500)->nullable();
             $table->string('color_primario', 7)->nullable();
             $table->string('color_secundario', 7)->nullable();

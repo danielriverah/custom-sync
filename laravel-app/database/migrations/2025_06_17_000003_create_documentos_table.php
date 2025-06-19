@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->id('documento_id');
-            $table->foreignId('submodulo_id')->nullable()->constrained('submodulos')->nullOnDelete();
-            $table->foreignId('modulo_id')->nullable()->constrained('modulos')->nullOnDelete();
+            $table->foreignId('submodulo_id')->nullable()->constrained('submodulos','submodulo_id')->nullOnDelete();
+            $table->foreignId('modulo_id')->nullable()->constrained('modulos','modulo_id')->nullOnDelete();
             $table->string('titulo', 150);
             $table->longText('contenido')->nullable();
             $table->integer('orden')->default(0);

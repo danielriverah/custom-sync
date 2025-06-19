@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('recursos', function (Blueprint $table) {
             $table->id('recurso_id');
-            $table->foreignId('documento_id')->constrained('documentos')->onDelete('cascade');
+            $table->foreignId('documento_id')->constrained('documentos','documento_id')->onDelete('cascade');
             $table->enum('tipo', ['imagen', 'video', 'ayuda']);
             $table->string('url', 500);
             $table->text('descripcion')->nullable();

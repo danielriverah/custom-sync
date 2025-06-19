@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Configuracion extends Model
 {
     use HasFactory;
-
+    protected $table='configuraciones';
     protected $primaryKey = 'configuracion_id';
 
     protected $fillable = [
