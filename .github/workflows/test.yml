@@ -19,11 +19,14 @@ jobs:
 
       - name: 📦 Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
+        working-directory: ./laravel-app
 
       - name: ⚙️ Set up .env and Laravel app key
         run: |
           cp .env.example .env
           php artisan key:generate
+        working-directory: ./laravel-app
 
       - name: ✅ Run Laravel tests
         run: php artisan test
+        working-directory: ./laravel-app
