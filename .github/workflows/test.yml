@@ -12,16 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 📥 Install Composer
-        run: |
-          curl -sS https://getcomposer.org/installer
-          sudo mv composer.phar /usr/local/bin/composer
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
           extensions: mbstring, bcmath, xml, ctype, curl
+          tools: composer
           coverage: none
 
       - name: Install Composer dependencies
