@@ -35,7 +35,7 @@ class ModuloController extends Controller
             'orden' => 'integer',
         ]);
         $proyecto->modulos()->create($data);
-        return redirect()->route('admin.modulos.index', $proyecto);
+        return redirect()->route('admin.proyectos.modulos.index', $proyecto);
     }
 
     public function edit(Proyecto $proyecto, Modulo $modulo)
@@ -54,12 +54,12 @@ class ModuloController extends Controller
             'orden' => 'integer',
         ]);
         $modulo->update($data);
-        return redirect()->route('admin.modulos.index', $proyecto);
+        return redirect()->route('admin.proyectos.modulos.index', $proyecto);
     }
 
     public function destroy(Proyecto $proyecto, Modulo $modulo)
     {
         $modulo->delete();
-        return redirect()->route('admin.modulos.index', $proyecto);
+        return redirect()->route('admin.proyectos.modulos.index', $proyecto);
     }
 }

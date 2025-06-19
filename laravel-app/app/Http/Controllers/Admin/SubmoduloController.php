@@ -35,7 +35,7 @@ class SubmoduloController extends Controller
             'orden' => 'integer',
         ]);
         $modulo->submodulos()->create($data);
-        return redirect()->route('admin.submodulos.index', $modulo);
+        return redirect()->route('admin.modulos.submodulos.index', $modulo);
     }
 
     public function edit(Modulo $modulo, Submodulo $submodulo)
@@ -54,12 +54,12 @@ class SubmoduloController extends Controller
             'orden' => 'integer',
         ]);
         $submodulo->update($data);
-        return redirect()->route('admin.submodulos.index', $modulo);
+        return redirect()->route('admin.modulos.submodulos.index', $modulo);
     }
 
     public function destroy(Modulo $modulo, Submodulo $submodulo)
     {
         $submodulo->delete();
-        return redirect()->route('admin.submodulos.index', $modulo);
+        return redirect()->route('admin.modulos.submodulos.index', $modulo);
     }
 }

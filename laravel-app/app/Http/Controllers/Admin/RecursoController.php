@@ -36,7 +36,7 @@ class RecursoController extends Controller
             'orden' => 'integer',
         ]);
         $documento->recursos()->create($data);
-        return redirect()->route('admin.recursos.index', $documento);
+        return redirect()->route('admin.documentos.recursos.index', $documento);
     }
 
     public function edit(Documento $documento, Recurso $recurso)
@@ -56,12 +56,12 @@ class RecursoController extends Controller
             'orden' => 'integer',
         ]);
         $recurso->update($data);
-        return redirect()->route('admin.recursos.index', $documento);
+        return redirect()->route('admin.documentos.recursos.index', $documento);
     }
 
     public function destroy(Documento $documento, Recurso $recurso)
     {
         $recurso->delete();
-        return redirect()->route('admin.recursos.index', $documento);
+        return redirect()->route('admin.documentos.recursos.index', $documento);
     }
 }

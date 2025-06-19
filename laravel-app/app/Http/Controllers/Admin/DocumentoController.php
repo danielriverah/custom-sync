@@ -44,7 +44,7 @@ class DocumentoController extends Controller
             $data['submodulo_id'] = $submodulo->submodulo_id;
         }
         Documento::create($data);
-        return redirect()->route('admin.documentos.index', [$modulo, $submodulo]);
+        return redirect()->route('admin.modulos.documentos.index', $modulo);
     }
 
     public function edit(Modulo $modulo, Documento $documento)
@@ -63,12 +63,12 @@ class DocumentoController extends Controller
             'orden' => 'integer',
         ]);
         $documento->update($data);
-        return redirect()->route('admin.documentos.index', [$modulo, $documento->submodulo_id]);
+        return redirect()->route('admin.modulos.documentos.index', $modulo);
     }
 
     public function destroy(Modulo $modulo, Documento $documento)
     {
         $documento->delete();
-        return redirect()->route('admin.documentos.index', [$modulo, $documento->submodulo_id]);
+        return redirect()->route('admin.modulos.documentos.index', $modulo);
     }
 }
