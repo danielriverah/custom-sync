@@ -27,3 +27,9 @@ jobs:
 
       - name: ✅ Run Laravel tests
         run: php artisan test
+
+      - name: Install node dependencias
+        run: npm install
+
+      - name: Run npm test
+        run: npm run test
