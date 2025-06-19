@@ -32,7 +32,8 @@ const props = defineProps({
                                 <td class="px-6 py-4 whitespace-nowrap">{{ proyecto.nombre }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ proyecto.slug }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right">
-                                    <Link :href="route('admin.proyectos.edit', proyecto)" class="text-indigo-600 hover:text-indigo-900 mr-3">Editar</Link>
+                                    <Link :href="route('admin.proyectos.show', proyecto)" class="text-indigo-600 hover:text-indigo-900 mr-3">Ver</Link>
+                                    <Link :href="route('admin.proyectos.edit', proyecto)" class="text-indigo-600 hover:text-indigo-900">Editar</Link>
                                 </td>
                             </tr>
                         </tbody>

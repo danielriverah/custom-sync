@@ -23,6 +23,11 @@ class ProyectoController extends Controller
         return Inertia::render('Projects/Create');
     }
 
+    public function show(Proyecto $proyecto)
+    {
+        return Inertia::render('Projects/Show', ['proyecto' => $proyecto]);
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
